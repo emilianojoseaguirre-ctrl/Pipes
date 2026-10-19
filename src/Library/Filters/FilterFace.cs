@@ -32,6 +32,8 @@ namespace Ucu.Poo.PipesAndFilters.Filters
 
             // Guardamos el resultado de la condición.
             this.Result = result.Success && result.FaceFound;
+            Console.WriteLine($"Azure procesó la imagen: {result.Success}");
+            Console.WriteLine($"Encontró una cara: {result.FaceFound}");
 
             // Devolvemos la imagen para continuar el pipeline.
             return picture;

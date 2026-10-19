@@ -21,12 +21,15 @@ namespace Ucu.Poo.PipesAndFilters
 
             PipeNull pipeNull = new PipeNull();
 
+            // Discord será el último pipe antes de PipeNull
+            PipeDiscord discord = new PipeDiscord(pipeNull);
+
             // Camino TRUE: escala de grises
-            PipeSave saveTrue = new PipeSave(pipeNull, "con_cara.jpg");
+            PipeSave saveTrue = new PipeSave(discord, "con_cara.jpg");
             PipeSerial truePipe = new PipeSerial(new FilterGrayscale(), saveTrue);
 
             // Camino FALSE: negativo
-            PipeSave saveFalse = new PipeSave(pipeNull, "sin_cara.jpg");
+            PipeSave saveFalse = new PipeSave(discord, "sin_cara.jpg");
             PipeSerial falsePipe = new PipeSerial(new FilterNegative(), saveFalse);
 
             // Filtro que evalúa la condición
